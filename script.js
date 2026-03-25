@@ -1,5 +1,5 @@
-const API_KEY = "AIzaSyDZ8p55dFFlUsj69Jt-M5UcQPpKIveTs8I";
-const SEARCH_ENGINE_ID = "a391ca1184ee84d83";
+const API_KEY = "YOUR_API_KEY";
+const SEARCH_ENGINE_ID = "YOUR_SEARCH_ENGINE_ID";
 
 document.addEventListener("DOMContentLoaded", () => {
     const chatMessages = document.getElementById("chat-messages");
