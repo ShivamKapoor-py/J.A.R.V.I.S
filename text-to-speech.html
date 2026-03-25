@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S - Text to Speech</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="text-to-speech.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loading-screen">
+        <div class="loading-circle"></div>
+        <div class="loading-text">INITIALIZING J.A.R.V.I.S</div>
+    </div>
+
+    <nav>
+        <div class="logo">J.A.R.V.I.S</div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="index.html#about">ABOUT</a>
+            <a href="index.html#features">FEATURES</a>
+            <a href="index.html#devices">DEVICES</a>
+            <a href="index.html#pricing">PRICING</a>
+            <a href="index.html#support">SUPPORT</a>
+            <a href="login.html" class="login-link">LOGIN</a>
+        </div>
+    </nav>
+
+    <a href="index.html" class="back-home-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </a>
+
+    <section class="tts-section">
+        <div class="tts-container">
+            <div class="tts-header">
+                <h1>NEURAL TEXT TO SPEECH</h1>
+                <div class="tts-subtitle">Convert text to lifelike speech in multiple languages</div>
+            </div>
+            
+            <div class="tts-interface">
+                <div class="tts-input-container">
+                    <div class="tts-textarea-container">
+                        <textarea id="tts-text" placeholder="Enter text to convert to speech..."></textarea>
+                        <div class="scanner-line"></div>
+                    </div>
+                    
+                    <div class="tts-controls">
+                        <div class="tts-control-group">
+                            <label for="input-language">Input Language</label>
+                            <select id="input-language">
+                                <option value="auto">Auto Detect</option>
+                                <option value="en-US">English</option>
+                                <option value="es-ES">Spanish</option>
+                                <option value="fr-FR">French</option>
+                                <option value="de-DE">German</option>
+                                <option value="it-IT">Italian</option>
+                                <option value="ja-JP">Japanese</option>
+                                <option value="ko-KR">Korean</option>
+                                <option value="zh-CN">Chinese (Simplified)</option>
+                                <option value="ru-RU">Russian</option>
+                                <option value="ar-SA">Arabic</option>
+                                <option value="hi-IN">Hindi</option>
+                            </select>
+                        </div>
+                        
+                        <div class="tts-control-group">
+                            <label for="output-language">Output Language</label>
+                            <select id="output-language">
+                                <option value="en-US">English</option>
+                                <option value="es-ES">Spanish</option>
+                                <option value="fr-FR">French</option>
+                                <option value="de-DE">German</option>
+                                <option value="it-IT">Italian</option>
+                                <option value="ja-JP">Japanese</option>
+                                <option value="ko-KR">Korean</option>
+                                <option value="zh-CN">Chinese (Simplified)</option>
+                                <option value="ru-RU">Russian</option>
+                                <option value="ar-SA">Arabic</option>
+                                <option value="hi-IN">Hindi</option>
+                            </select>
+                        </div>
+                        
+                        <div class="tts-control-group">
+                            <label for="voice-gender">Voice Gender</label>
+                            <div class="voice-toggle">
+                                <input type="radio" id="male-voice" name="voice-gender" value="male" checked>
+                                <label for="male-voice">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 7h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                        <path d="M12 13a5 5 0 0 0-5 5v2h10v-2a5 5 0 0 0-5-5z"/>
+                                    </svg>
+                                    Male
+                                </label>
+                                
+                                <input type="radio" id="female-voice" name="voice-gender" value="female">
+                                <label for="female-voice">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 7h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                        <path d="M7 23v-2a5 5 0 0 1 5-5v0a5 5 0 0 1 5 5v2"/>
+                                    </svg>
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tts-actions">
+                    <button id="translate-btn" class="tts-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 8l6 6 6-6"/>
+                            <path d="M5 16l6 6 6-6"/>
+                        </svg>
+                        Translate
+                    </button>
+                    <button id="speak-btn" class="tts-btn primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                        </svg>
+                        Speak
+                    </button>
+                    <button id="download-btn" class="tts-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download
+                    </button>
+                </div>
+                
+                <div class="tts-visualizer">
+                    <div class="visualizer-container">
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                        <div class="visualizer-bar"></div>
+                    </div>
+                    <div class="visualizer-time">00:00 / 00:00</div>
+                </div>
+            </div>
+            
+            <div class="tts-history">
+                <h2>Recent Conversions</h2>
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="history-text">Welcome to J.A.R.V.I.S Text to Speech</div>
+                        <div class="history-actions">
+                            <button class="history-play">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                            </button>
+                            <button class="history-delete">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="3 6 5 6 21 6"/>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">J.A.R.V.I.S</div>
+            <div class="footer-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#devices">Devices</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#support">Support</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"></a>
+                <a href="#" class="social-icon"></a>
+                <a href="#" class="social-icon"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 J.A.R.V.I.S. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="text-to-speech.js"></script>
+</body>
+</html>
+
